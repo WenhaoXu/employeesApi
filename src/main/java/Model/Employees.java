@@ -1,19 +1,19 @@
 package Model;
 
 public class Employees {
-      private final  long id;
+      public final  String id;
       private final String name;
       private final int age;
-      private final String sex;
+      private final String gender;
 
-     public Employees(long id, String name, int age, String sex){
+     public Employees(String id, String name, int age, String gender){
          this.id=id;
          this.name=name;
          this.age=age;
-         this.sex=sex;
+         this.gender =gender;
      }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
@@ -25,8 +25,8 @@ public class Employees {
         return age;
     }
 
-    public String getSex() {
-        return sex;
+    public String getGender() {
+        return gender;
     }
 
 
