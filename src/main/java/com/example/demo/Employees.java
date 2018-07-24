@@ -1,10 +1,14 @@
-package Model;
+package com.example.demo;
 
 public class Employees {
-      public final  String id;
-      private final String name;
-      private final int age;
-      private final String gender;
+    public   String id;
+    public  String name;
+    public  int age;
+    public  String gender;
+
+     public Employees(){
+
+     }
 
      public Employees(String id, String name, int age, String gender){
          this.id=id;

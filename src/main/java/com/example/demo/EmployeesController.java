@@ -1,9 +1,6 @@
 package com.example.demo;
 
 
-import Model.Employees;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.LinkedList;
@@ -26,7 +23,6 @@ public class EmployeesController {
         list.add(employees2);
         list.add(employees3);
         list.add(employees4);
-
     }
 
 
@@ -50,10 +46,34 @@ public class EmployeesController {
               }
       }
 
-//      @PostMapping("/employees")
-//      public Employees postEmployees(@RequestBody  Employees employees){
-//          list.add(employees);
-//          return  employees;
-//      }
+    @PutMapping("/employees/{id}")
+    public boolean putEmployee(@PathVariable  String id ,@RequestBody Employees e) {
+        for(int i=0;i<list.size();i++){
+            if(list.get(i).id.equals(id)){
+                list.remove(i);
+                list.add(e);
+                return true;
+            }
+        }
+        return  false;
+    }
 
+
+      @PostMapping("/employees")
+      public Employees postEmployees(@RequestBody  Employees employees){
+          list.add(employees);
+          return  employees;
+      }
+
+
+    @DeleteMapping ("/employees/{id}")
+    public boolean deletEmployees(@PathVariable String id){
+        for(int i=0;i<list.size();i++){
+            if(list.get(i).id.equals(id)){
+                list.remove(i);
+                return true;
+            }
+        }
+        return  false;
+    }
 }
