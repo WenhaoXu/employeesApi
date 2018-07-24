@@ -47,15 +47,15 @@ public class EmployeesController {
       }
 
     @PutMapping("/employees/{id}")
-    public boolean putEmployee(@PathVariable  String id ,@RequestBody Employees e) {
+    public Employees putEmployee(@PathVariable  String id ,@RequestBody Employees e) {
         for(int i=0;i<list.size();i++){
             if(list.get(i).id.equals(id)){
                 list.remove(i);
                 list.add(e);
-                return true;
+                return e;
             }
         }
-        return  false;
+        return  null;
     }
 
 
@@ -67,13 +67,12 @@ public class EmployeesController {
 
 
     @DeleteMapping ("/employees/{id}")
-    public boolean deletEmployees(@PathVariable String id){
+    public Employees deletEmployees(@PathVariable String id){
         for(int i=0;i<list.size();i++){
             if(list.get(i).id.equals(id)){
-                list.remove(i);
-                return true;
+                return  list.remove(i);
             }
         }
-        return  false;
+        return  null;
     }
 }
